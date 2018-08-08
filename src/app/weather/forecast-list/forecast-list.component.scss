@@ -1,0 +1,33 @@
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  li {
+      box-sizing: border-box;
+      align-items: center;
+      align-content: center;
+      padding: 10px 15px;
+      display: inline-flex;
+      flex: 1;
+      flex-basis: 125px;
+      flex-direction: column;
+      margin: 0;
+      border-top: 1px solid #d5dee0;
+  }
+  li:not(:last-child) {
+      border-right: 1px solid #d5dee0;
+  }
+  h3 {
+      color: #999;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+  }
+  h4 {
+      color: #666;
+      font-size: 14px;
+      line-height: 24px;
+  }
+}

@@ -1,5 +1,6 @@
 export interface WeatherModel {
-  date: Date,
+  date: string,
   temp: number,
-  pressure: number
+  pressure: number,
+  iconUrl: string
 }

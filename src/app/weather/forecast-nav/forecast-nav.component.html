@@ -1,0 +1,19 @@
+<div class="nav">
+  <div class="arrows">
+    <button [disabled]="activeDay === 0" class="prev" (click)="emitPreviousDay()">
+      <span>&#8592;</span>
+    </button>
+    <h3 class="today">{{currentCity | titlecase }} - {{ todayForecasts[0].date | date:'fullDate' }}</h3>
+    <button [disabled]="activeDay + 1 >= daysCount" class="next" (click)="emitNextDay()">
+      <span>&#8594;</span>
+    </button>
+  </div>
+  <div class="city-picker">
+    <input [formControl]="city" type="text" name="city" list="cityname">
+    <datalist id="cityname">
+      <option value="Boston">
+        <option value="Cambridge">
+    </datalist>
+    <button (click)="emitForecast()">forecast</button>
+  </div>
+</div>

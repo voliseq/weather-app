@@ -1,0 +1,43 @@
+.nav {
+  padding: 10px 0px;
+  margin-bottom: 10px;
+  justify-content: center;
+  text-align: center;
+  h3 {
+      width: 380px;
+      margin: 8px 10px 0px 10px;
+      display: inline-block;
+  }
+  .next,
+  .prev {
+      outline: none;
+      border: none;
+      user-select: none;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      color: white;
+      width: 35px;
+      height: 35px;
+      background: #32c8de;
+      display: inline-block;
+      border-radius: 50%;
+  }
+  button:disabled {
+    background-color:  #d5dee0;
+    cursor: no-drop;
+  }
+  span {
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      font-size: 24px;
+  }
+  .arrows{
+    display: flex;
+    justify-content: center;
+  }
+  .city-picker{
+    display: block;
+  }
+}

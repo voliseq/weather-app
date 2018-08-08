@@ -10,21 +10,46 @@ import { Observable } from 'rxjs';
 })
 export class WeatherComponent implements OnInit {
 
-  forecasts$: Observable<WeatherModel[][]>;
-  activeDay: number = 1;
+  forecasts: WeatherModel[][];
+  activeDay: number = 0;
+  currentCity: string = "Kraków";
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-     this.forecasts$ = this.weatherService.getForecast();
+    this.weatherService.getForecast(this.currentCity).subscribe(forecasts => {
+      this.forecasts = this.groupByDay(forecasts, 'date');
+    });
   }
 
-  previousDay(): void{
-    console.log(this.forecasts$);
-    this.activeDay = this.activeDay ? this.activeDay - 1 : this.activeDay;
+  onNavigate(currentDay: number): void {
+    this.activeDay = currentDay;
   }
 
-  nextDay(): void {
-    this.activeDay += 1;
+  onForecast(newCity: string): void {
+    this.weatherService.getForecast(newCity).subscribe(
+      forecasts => {
+        this.forecasts = this.groupByDay(forecasts, 'date');
+        this.activeDay = 0;
+        this.currentCity = newCity;
+      },
+      error => {
+        alert('Something went wrong, probably invalid city name');
+      })
   }
 
+  groupByDay(collection, property): WeatherModel[][] {
+    var i = 0, val, index,
+      values = [], result = [];
+    for (; i < collection.length; i++) {
+      val = collection[i][property].split(' ')[0];
+      index = values.indexOf(val);
+      if (index > -1)
+        result[index].push(collection[i]);
+      else {
+        values.push(val);
+        result.push([collection[i]]);
+      }
+    }
+    return result;
+  };
 }

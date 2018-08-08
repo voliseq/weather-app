@@ -3,71 +3,8 @@
     border-top: 3px solid #32c8de;
     border-radius: 4px;
     width: 100%;
-    .nav {
-        display: flex;
-        padding: 10px 0px;
-        justify-content: center;
-        text-align: center;
-        h3 {
-            width: 380px;
-            margin: 8px 10px 0px 10px;
-            display: inline-block;
-        }
-        .next,
-        .prev {
-            outline: none;
-            border: none;
-            user-select: none;
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-            color: white;
-            width: 35px;
-            height: 35px;
-            background: #32c8de;
-            display: inline-block;
-            border-radius: 50%;
-        }
-        span {
-            position: absolute;
-            top: 2px;
-            left: 5px;
-            font-size: 24px;
-        }
-    }
     .today {
         text-align: center;
     }
-    ul {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex: 1;
-        flex-wrap: wrap;
-        li {
-            box-sizing: border-box;
-            align-items: center;
-            align-content: center;
-            padding: 10px 15px;
-            display: inline-flex;
-            flex: 1;
-            flex-basis: 125px;
-            flex-direction: column;
-            margin: 0;
-        }
-        li:not(:last-child) {
-            border-right: 1px solid #d5dee0;
-        }
-        h3 {
-            color: #999;
-            font-size: 18px;
-            line-height: 28px;
-            font-weight: 400;
-        }
-        h4 {
-            color: #666;
-            font-size: 14px;
-            line-height: 24px;
-        }
-    }
+    overflow-y: auto;
 }

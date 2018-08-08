@@ -1,20 +1,7 @@
-<div class="forecast" *ngIf="forecasts$ | async as forecasts else loading">
-  <div class="nav">
-    <button [disabled]="activeDay === 0" class="prev" (click)="previousDay()">
-      <span>&#8592;</span>
-    </button>
-    <h3 class="today">{{ forecasts[activeDay][0].date | date:'fullDate' }}</h3>
-    <button [disabled]="activeDay + 1 >= forecasts.length" class="next" (click)="nextDay()">
-      <span>&#8594;</span>
-    </button>
-  </div>
-  <ul class="list-unstyled clearfix">
-    <li *ngFor="let forecast of forecasts[activeDay]">
-      <h4>{{ forecast.date | date:'shortTime' }}</h4>
-      <img [src]="forecast.iconUrl" alt="">
-      <h3>{{ forecast.temperature }} &deg; C</h3>
-    </li>
-  </ul>
+<div class="forecast" *ngIf="forecasts">
+  <app-forecast-nav (forecast)="onForecast($event)" (navigate)="onNavigate($event)" [currentCity]="currentCity" [daysCount]="forecasts.length"
+    [activeDay]="activeDay" [todayForecasts]="forecasts[activeDay]"></app-forecast-nav>
+  <app-forecast-list [forecasts]="forecasts" [activeDay]="activeDay"></app-forecast-list>
 </div>
 
 
