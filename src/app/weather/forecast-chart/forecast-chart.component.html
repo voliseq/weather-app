@@ -1,3 +1,17 @@
-<p>
-  forecast-chart works!
-</p>
+<div class="chart-container">
+  <div class="chart">
+    <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true">
+    </canvas>
+  </div>
+  <div class="avg-pressure">
+    <h3>Average Pressure</h3>
+    <h2>{{avgPressure}} hPa</h2>
+  </div>
+</div>
+

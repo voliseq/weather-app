@@ -2,12 +2,5 @@
   display: flex;
   flex: 1;
   justify-content: center;
+  height: 100%;
 }
-
-app-weather {
-  display: flex;
-  flex: 1;
-  max-width: 1000px;
-  margin: 50px 0;
-}
-

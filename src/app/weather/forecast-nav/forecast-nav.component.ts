@@ -12,21 +12,26 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./forecast-nav.component.scss']
 })
 export class ForecastNavComponent {
-
-  @Input() daysCount: number;
-  @Input() todayForecasts: WeatherModel[];
-  @Input() activeDay: number;
-  @Input() currentCity: string;
-  @Output() navigate: EventEmitter<number> = new EventEmitter();
-  @Output() forecast: EventEmitter<string> = new EventEmitter();
+  @Input()
+  daysCount: number;
+  @Input()
+  todayForecasts: WeatherModel[];
+  @Input()
+  activeDay: number;
+  @Input()
+  currentCity: string;
+  @Output()
+  navigate: EventEmitter<number> = new EventEmitter();
+  @Output()
+  forecast: EventEmitter<string> = new EventEmitter();
   city = new FormControl('krakow', Validators.required);
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.city.valueChanges.subscribe(newCity => {
       console.log(newCity);
-    })
+    });
   }
 
   emitPreviousDay(): void {
@@ -35,13 +40,15 @@ export class ForecastNavComponent {
   }
 
   emitNextDay(): void {
-    this.activeDay = this.activeDay >= (this.daysCount - 1) ? this.activeDay : this.activeDay + 1;
+    this.activeDay =
+      this.activeDay >= this.daysCount - 1
+        ? this.activeDay
+        : this.activeDay + 1;
     this.navigate.emit(this.activeDay);
   }
 
-  emitForecast(): void{
+  emitForecast(): void {
     const newCity = this.city.value;
     this.forecast.emit(newCity);
   }
-
 }

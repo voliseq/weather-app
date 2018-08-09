@@ -8,8 +8,9 @@ import { WeatherModel } from '../../models/weather.model';
   styleUrls: ['./forecast-list.component.scss']
 })
 export class ForecastListComponent {
-
-  @Input() activeDay: number;
-  @Input() forecasts: WeatherModel[][];
-  constructor() { }
+  @Input()
+  activeDay: number;
+  @Input()
+  forecasts: WeatherModel[][];
+  constructor() {}
 }

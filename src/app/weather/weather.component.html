@@ -2,6 +2,7 @@
   <app-forecast-nav (forecast)="onForecast($event)" (navigate)="onNavigate($event)" [currentCity]="currentCity" [daysCount]="forecasts.length"
     [activeDay]="activeDay" [todayForecasts]="forecasts[activeDay]"></app-forecast-nav>
   <app-forecast-list [forecasts]="forecasts" [activeDay]="activeDay"></app-forecast-list>
+  <app-forecast-chart [avgPressure]="avgPressure" [chartData]="chartData"></app-forecast-chart>
 </div>
 
 

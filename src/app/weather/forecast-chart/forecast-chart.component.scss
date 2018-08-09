@@ -1,0 +1,29 @@
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  .chart{
+    flex: 1;
+    margin-right: 10px;
+  }
+  .avg-pressure{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color:#32c8de;
+    border-radius: 5px;
+    h2,h3{
+      display: block;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .avg-pressure {
+    padding: 5px;
+  }
+}

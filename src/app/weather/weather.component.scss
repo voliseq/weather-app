@@ -1,10 +1,30 @@
+:host {
+  height: 100%;
+  flex: 1;
+  max-width: 1000px;
+  margin: 50px 0;
+  overflow: hidden;
+}
+
 .forecast {
+    overflow-y: auto;
     background: #fff;
     border-top: 3px solid #32c8de;
     border-radius: 4px;
     width: 100%;
+    max-height: calc(100% - 100px);
     .today {
         text-align: center;
     }
     overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 1000px) {
+  :host{
+    margin: 0;
+  }
+  .forecast{
+    max-height: 100%;
+  }
 }
