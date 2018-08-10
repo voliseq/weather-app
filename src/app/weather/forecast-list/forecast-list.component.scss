@@ -1,10 +1,12 @@
+@import "../../../styles/_variables.scss";
+
 ul {
   margin: 0;
   padding: 0;
   display: flex;
   flex: 1;
   flex-wrap: wrap;
-  border-bottom: 1px solid #d5dee0;
+  border-bottom: 1px solid $gray;
   li {
       box-sizing: border-box;
       align-items: center;
@@ -15,10 +17,10 @@ ul {
       flex-basis: 125px;
       flex-direction: column;
       margin: 0;
-      border-top: 1px solid #d5dee0;
+      border-top: 1px solid $gray;
   }
   li:not(:last-child) {
-      border-right: 1px solid #d5dee0;
+      border-right: 1px solid $gray;
   }
   h3 {
       color: #999;

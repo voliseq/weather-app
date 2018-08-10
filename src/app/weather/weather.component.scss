@@ -1,3 +1,4 @@
+@import "../../styles/_variables.scss";
 :host {
   height: 100%;
   flex: 1;
@@ -9,7 +10,7 @@
 .forecast {
     overflow-y: auto;
     background: #fff;
-    border-top: 3px solid #32c8de;
+    border-top: 3px solid $blue;
     border-radius: 4px;
     width: 100%;
     max-height: calc(100% - 100px);

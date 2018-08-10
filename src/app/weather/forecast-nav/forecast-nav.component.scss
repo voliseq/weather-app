@@ -1,3 +1,4 @@
+@import "../../../styles/_variables.scss";
 .nav {
   padding: 10px 0px;
   margin-bottom: 10px;
@@ -20,12 +21,12 @@
       color: white;
       width: 35px;
       height: 35px;
-      background: #32c8de;
+      background: $blue;
       display: inline-block;
       border-radius: 50%;
   }
   button:disabled {
-    background-color:  #d5dee0;
+    background-color: $gray;
     cursor: no-drop;
   }
   span {
