@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { WeatherModel } from '../../models/weather.model';
 import { EventEmitter } from '@angular/core';
@@ -27,12 +27,6 @@ export class ForecastNavComponent {
   city = new FormControl('krakow', Validators.required);
 
   constructor() {}
-
-  ngOnInit() {
-    this.city.valueChanges.subscribe(newCity => {
-      console.log(newCity);
-    });
-  }
 
   emitPreviousDay(): void {
     this.activeDay = this.activeDay ? this.activeDay - 1 : this.activeDay;

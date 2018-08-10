@@ -18,7 +18,6 @@ export class WeatherService {
   getForecast(city: string): Observable<WeatherModel[]> {
     const requestUrl = `${this.apiUrl}?q=${city}&units=metric&mode=json&APPID=${this.apiKey}`;
     return this.http.get(requestUrl).pipe(
-      tap(data => console.log(data)),
       map(data => data['list']
         .map(listItem => ({
           date: listItem['dt_txt'],
