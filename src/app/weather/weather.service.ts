@@ -11,7 +11,7 @@ import { WeatherModel } from '../models/weather.model';
 export class WeatherService {
   private readonly apiUrl = "https://api.openweathermap.org/data/2.5/forecast";
   private readonly iconUrl = "http://openweathermap.org/img/w/";
-  private readonly apiKey = "cbc9a8df44052c37609415d452b3ff61";
+  private readonly apiKey = "your api key";
 
   constructor(private http: HttpClient) { }
 
