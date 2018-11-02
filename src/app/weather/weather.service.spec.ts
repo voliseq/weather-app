@@ -1,6 +1,7 @@
-import { TestBed, inject, getTestBed } from '@angular/core/testing';
+import { TestBed, inject, getTestBed, fakeAsync } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { WeatherService } from './weather.service';
+import { WeatherModule } from './weather.module';
 
 fdescribe('WeatherService', () => {
 
@@ -14,7 +15,9 @@ fdescribe('WeatherService', () => {
       imports: [
         HttpClientTestingModule,
       ],
-      providers: [WeatherService]
+      providers: [
+        WeatherService,
+      ]
     });
 
     injector = getTestBed();
@@ -22,17 +25,24 @@ fdescribe('WeatherService', () => {
     httpMock = injector.get(HttpTestingController);
   });
 
-  afterEach(() => {
+  afterEach(inject([HttpTestingController], (httpMock: HttpTestingController) => {
     httpMock.verify();
-  })
+  }));
 
   it('should be created', inject([WeatherService], (service: WeatherService) => {
     expect(service).toBeTruthy();
-  }));
+  })); 
 
-  it('should return weather data', () => {
-    service.getForecast("krakow").subscribe(forecast => {
-
+  it('expects service to fetch data with proper sorting',
+  inject([HttpTestingController, WeatherService],
+    (httpMock: HttpTestingController, service: WeatherService) => {
+      const city = "krakow";
+      service.getForecast("krakow").subscribe(data => {
+        expect(data.length).toBe(1);
+      });
+      const req = httpMock.expectOne(`${service.apiUrl}?q=${city}&units=metric&mode=json&APPID=${service.apiKey}`);
+      expect(req.request.method).toEqual('GET');
+      req.flush([{}]);
     })
-  });
+);
 });
