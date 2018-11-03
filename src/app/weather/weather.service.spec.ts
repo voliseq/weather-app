@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { WeatherService } from './weather.service';
 import { WeatherModule } from './weather.module';
 
-fdescribe('WeatherService', () => {
+describe('WeatherService', () => {
 
   let service: WeatherService;
   let httpMock: HttpTestingController;

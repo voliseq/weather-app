@@ -15,7 +15,7 @@ export class ForecastNavComponent {
   @Input()
   daysCount: number;
   @Input()
-  todayForecasts: WeatherModel[];
+  todayForecasts: WeatherModel[] = [];
   @Input()
   activeDay: number;
   @Input()

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForecastNavComponent } from './forecast-nav.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('ForecastNavComponent', () => {
   let component: ForecastNavComponent;
@@ -8,6 +9,7 @@ describe('ForecastNavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
       declarations: [ ForecastNavComponent ]
     })
     .compileComponents();
