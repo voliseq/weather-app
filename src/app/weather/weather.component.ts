@@ -32,7 +32,6 @@ export class WeatherComponent implements OnInit {
   onForecast(newCity: string): void {
     this.weatherService.getForecast(newCity).subscribe(
       forecasts => {
-        console.log(this.forecasts);
         this.forecasts = this.groupByDay(forecasts, 'date');
         this.activeDay = 0;
         this.currentCity = newCity;

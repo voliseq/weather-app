@@ -31,18 +31,18 @@ fdescribe('WeatherService', () => {
 
   it('should be created', inject([WeatherService], (service: WeatherService) => {
     expect(service).toBeTruthy();
-  })); 
+  }));
 
   it('expects service to fetch data with proper sorting',
-  inject([HttpTestingController, WeatherService],
-    (httpMock: HttpTestingController, service: WeatherService) => {
-      const city = "krakow";
-      service.getForecast("krakow").subscribe(data => {
-        expect(data.length).toBe(1);
-      });
-      const req = httpMock.expectOne(`${service.apiUrl}?q=${city}&units=metric&mode=json&APPID=${service.apiKey}`);
-      expect(req.request.method).toEqual('GET');
-      req.flush([{}]);
-    })
-);
+    inject([HttpTestingController, WeatherService],
+      (httpMock: HttpTestingController, service: WeatherService) => {
+        const city = "krakow";
+        service.getForecast(city).subscribe(data => {
+          expect(data.length).toEqual(10);
+        });
+        const req = httpMock.expectOne(`${service.apiUrl}?q=${city}&units=metric&mode=json&APPID=${service.apiKey}`);
+        expect(req.request.method).toEqual('GET');
+        req.flush({});
+      })
+  );
 });
